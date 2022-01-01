@@ -1,0 +1,51 @@
+﻿@model List<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Email)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Address)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Phone)</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var employeeViewModel in Model)
+        {
+            <tr>
+                <td scope="row">@(i+1)</td>
+                @{ i++;}
+                <td scope="row" class="text-break">@employeeViewModel.Name</td>
+                <td scope="row" class="text-break">@employeeViewModel.Email</td>
+                <td scope="row" class="text-break">@employeeViewModel.Address</td>
+                <td scope="row" class="text-break">@employeeViewModel.Phone</td>
+                <td onclick="openDeleteModal(@employeeViewModel.Id)" scope="row" class="d-flex justify-content-center cursor-pointer"><i class="fas fa-trash text-danger"></i></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+
+        function openDeleteModal(id) {
+            $.ajax({
+                type: "GET",
+                url: `@Url.Action("Delete", "Employees")/${id}`,
+                success: (response) => {
+                    $('#modal').html(response);
+                    $('#modal #deleteModal').modal('show');
+                }
+            })
+        }
+    </script>
+
+}

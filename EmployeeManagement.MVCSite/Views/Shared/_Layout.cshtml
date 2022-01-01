@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EmployeeManagement.MVCSite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light header border-bottom box-shadow mb-3 text-white">
+            <div class="container header">
+                <a class="header__logo text-white" asp-area="" asp-controller="Employees" asp-action="Index">Manage <b>Employees</b></a>
+                <button onclick="openCreateEmployeeModal();" class="btn-success px-4 py-2 rounded">
+                    <span class="fas fa-plus-circle"></span> Add New Employee
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main> 
+        <div id="modal">
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - BE SOLUTIONS - <b>.NET TEST - Pham Chi Trung</b>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+<script>
+
+        $(document).ready(() => {
+            $(".close-modal-btn").click(() => {
+                $('#modal').html("");
+            });
+        })
+
+        function openCreateEmployeeModal() {
+            $.ajax({
+                type: "GET",
+                url: `@Url.Action("Create", "Employees")`,
+                success: (response) => {
+                    $('#modal').html(response);
+                    $('#modal #createModal').modal('show');
+                }
+            })
+        }
+</script>
+</body>
+</html>

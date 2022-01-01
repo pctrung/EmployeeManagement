@@ -1,0 +1,83 @@
+﻿
+/* Custom CSS */
+:root {
+    --primary-color: #435D7D;
+}
+
+.header {
+    background-color: var(--primary-color);
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo{
+    font-size: 2rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary{
+    color: var(--primary-color) !important;
+}
+
+.modal-title{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.modal-header, .modal-body, .modal-footer {
+    padding: 1.5rem 2rem 1.5rem 2rem
+}
+
+.modal-footer {
+    background-color: #ECF0F1;
+}
+
+.btn{
+    padding: 5px 25px 5px 25px;
+}
+
+a:hover {
+    color: #00A0C6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+/* Default CSS */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+body { 
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; 
+}
