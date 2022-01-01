@@ -24,9 +24,10 @@ Employee Management is a management website for employee management with basic f
 ## In Command Line
 
 * Create appsettings.json file to config connection strings in Data layer and MVCSite layer
-* Open command line and run these code
+* Open command line, cd to project and run these code
 ```
 dotnet restore
+cd EmployeeManagement.MVCSite
 dotnet run
 ```
 
