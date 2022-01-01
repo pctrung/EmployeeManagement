@@ -31,6 +31,10 @@ namespace EmployeeManagement.Application.Services
 
         public async Task<int> CreateAsync(CreateEmployeeRequestModel request)
         {
+            if (string.IsNullOrWhiteSpace(request.Name) || string.IsNullOrWhiteSpace(request.Email))
+            {
+                return 0;
+            }
             var newEmployee = new Employee()
             {
                 Name = request.Name,

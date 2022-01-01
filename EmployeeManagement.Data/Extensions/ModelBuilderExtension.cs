@@ -102,6 +102,7 @@ namespace EmployeeManagement.Data.Extensions
             };
 
             dbContext.AddRange(employeeList);
+            dbContext.SaveChanges();
         }
     }
 }
