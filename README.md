@@ -1,27 +1,27 @@
 # Employee Management
 Employee Management is a management website for employee management with basic features
 
-# Tech Stack
+## Tech Stack
 - ASP.NET 5
 - Entity Framework 5.0.13
 - Bootstrap 4
 - JQuery
 
-# Prerequirements
+## Prerequirements
 
 * Visual Studio 2019
 * .NET 5 SDK
 * SQL Server
 
-# How To Run
-## In Visual Studio
+## How To Run
+### In Visual Studio
 
 * Open solution in Visual Studio 2019
 * Create appsettings.json file to config connection strings in Data layer and MVCSite layer
 * Set EmployeeManagement.MVCSite project as Startup Project and build the project
 * Run the application
 
-## In Command Line
+### In Command Line
 
 * Create appsettings.json file to config connection strings in Data layer and MVCSite layer
 * In the project directory, you run:
@@ -31,7 +31,7 @@ cd EmployeeManagement.MVCSite
 dotnet run
 ```
 
-## Example appsettings.json file
+### Example appsettings.json file
 ```
 {
   "Logging": {
