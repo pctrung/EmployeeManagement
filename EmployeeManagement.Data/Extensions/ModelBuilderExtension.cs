@@ -61,7 +61,7 @@ namespace EmployeeManagement.Data.Extensions
             {
                 new Employee
                 {
-                    Id = 1,
+                    Id = 6,
                     Name = "Thomas Hardy",
                     Email = "thomashardy@mail.com",
                     Address = "89 Chiaroscuro Rd, Portland, USA",
@@ -69,7 +69,7 @@ namespace EmployeeManagement.Data.Extensions
                 },
                 new Employee
                 {
-                    Id = 2,
+                    Id = 7,
                     Name = "Dominique Perrier",
                     Email = "dominiqueperrier@mail.com",
                     Address = "Obere Str. 57, Berlin, Germany",
@@ -77,7 +77,7 @@ namespace EmployeeManagement.Data.Extensions
                 },
                 new Employee
                 {
-                    Id = 3,
+                    Id = 8,
                     Name = "Maria Anders",
                     Email = "mariaanders@mail.com",
                     Address = "25, Rue lauriston, Paris, France",
@@ -85,7 +85,7 @@ namespace EmployeeManagement.Data.Extensions
                 },
                 new Employee
                 {
-                    Id = 4,
+                    Id = 9,
                     Name = "Fran Wilson",
                     Email = "franwilson@mail.com",
                     Address = "C/ Araquil, 67, Marid, Spain",
@@ -93,7 +93,7 @@ namespace EmployeeManagement.Data.Extensions
                 },
                 new Employee
                 {
-                    Id = 5,
+                    Id = 10,
                     Name = "Martin Blank",
                     Email = "martinblank@mail.com",
                     Address = "Via Monte Blanco 34, Turin, Italy",
@@ -102,7 +102,18 @@ namespace EmployeeManagement.Data.Extensions
             };
 
             dbContext.AddRange(employeeList);
-            dbContext.SaveChanges();
+
+            dbContext.Database.OpenConnection();
+            try
+            {
+                dbContext.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees ON;");
+                dbContext.SaveChanges();
+                dbContext.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees OFF");
+            }
+            finally
+            {
+                dbContext.Database.CloseConnection();
+            }
         }
     }
 }

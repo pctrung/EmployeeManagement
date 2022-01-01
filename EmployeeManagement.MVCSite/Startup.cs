@@ -39,9 +39,8 @@ namespace EmployeeManagement.MVCSite
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var dbcontext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                dbcontext.Database.Migrate();
-                dbcontext.Seed();
+                var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                dbContext.Database.Migrate();
             }
 
             if (env.IsDevelopment())
