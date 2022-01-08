@@ -1,6 +1,8 @@
 # Employee Management
 Employee Management is a management website for employee management with basic features
 
+![image](https://user-images.githubusercontent.com/44517184/147853735-10ceb343-38fa-41a2-8340-82136a6b2cb7.png)
+
 ## Tech Stack
 - ASP.NET 5
 - Entity Framework 5.0.13
@@ -48,5 +50,3 @@ dotnet run
 }
 ```
 
-# UI
-![image](https://user-images.githubusercontent.com/44517184/147853735-10ceb343-38fa-41a2-8340-82136a6b2cb7.png)
